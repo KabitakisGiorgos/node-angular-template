@@ -3,10 +3,10 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "npm run build & concurrently --kill-others \"npm run serve-api\" \"npm run serve\"",
+    "start": "npm run build & concurrently --kill-others \"npm run serve-api\" ",
     "serve": "ng serve --proxy-config proxy.conf.json",
     "build": "ng build --watch --output-path=public",
-    "serve-api": "nodemon server/index.js",
+    "serve-api": "ts-node-dev --respawn --transpileOnly ./server/index.ts",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -27,7 +27,9 @@
     "path": "^0.12.7",
     "rxjs": "~6.4.0",
     "socket.io": "^2.2.0",
+    "ts-node-dev": "^1.0.0-pre.32",
     "tslib": "^1.9.3",
+    "typescript": "^3.3.3",
     "zone.js": "~0.8.29"
   },
   "devDependencies": {
@@ -37,7 +39,7 @@
     "@angular/language-service": "^7.2.5",
     "@types/jasmine": "^2.8.16",
     "@types/jasminewd2": "^2.0.6",
-    "@types/node": "^8.10.40",
+    "@types/node": "^11.9.4",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~3.0.0",
@@ -45,6 +47,6 @@
     "karma-coverage-istanbul-reporter": "^2.0.5",
     "karma-jasmine": "~1.1.2",
     "karma-jasmine-html-reporter": "^0.2.2",
-    "ts-node": "~7.0.0"
+    "ts-node": "^8.0.2"
   }
 }

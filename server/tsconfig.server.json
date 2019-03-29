@@ -1,0 +1,15 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "module": "commonjs",
+    "rootDir": "./"
+  },
+  "compileOnSave": false,
+  "exclude": [
+    "./config/local.env.sample.ts"
+  ],
+  "typeRoots": [
+    "../../node_modules/@types",
+    "./types/global.d.ts"
+  ]
+}

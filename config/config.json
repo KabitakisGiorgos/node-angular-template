@@ -1,0 +1,19 @@
+{
+  "general": {
+    "clientPort": 3000
+  },
+  "express": {
+    "hostname": "localhost",
+    "port": "9000",
+    "ip": "127.0.0.1"
+  },
+  "mongodb": {
+    "connect": true,
+    "host": "localhost",
+    "name": "template",
+    "port": 27017,
+    "options": {
+      "useNewUrlParser": true
+    }
+  }
+}

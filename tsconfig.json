@@ -3,7 +3,7 @@
   "compilerOptions": {
     "baseUrl": "./",
     "importHelpers": true,
-    "outDir": "./dist/out-tsc",
+    "outDir": "./public/out-tsc",
     "sourceMap": true,
     "declaration": false,
     "module": "commonjs",

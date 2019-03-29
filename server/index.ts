@@ -1,18 +1,27 @@
 import * as express from 'express';
-import *as path from 'path';
+import * as http from 'http';
+import * as mongoose from 'mongoose';
+import { enviroment } from './config/enviroment';
+import expressConfig from './config/express';
+import Routes from './routes';
+import * as  path from 'path'
 
-const app: express.Application = express();
-// app.get('/', (req, res) => {
-//     res.send('Hello World');
-// });
+mongoose.set('useCreateIndex', true);
+mongoose.connect(enviroment.mongo.uri, enviroment.mongo.options).then((data) => {
+    console.info('MongoDB is connected on ' + enviroment.mongo.uri);
+},
+    (err) => {
+        console.error(err);
+    });
+
+
+let app = express();
+let server = http.createServer(app);
 
 app.use(express.static(__dirname + '/../public'));
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '/../public', 'index.html'));
-});
+expressConfig(app);
+Routes(app);
 
-app.listen(3000, () => {
-    console.log('Example app2  listening on port 3000!');
+server.listen(enviroment.port, enviroment.ip, () => {
+    console.info('Express server listening on ' + enviroment.port);
 });
-
-// "start": "ts-node-dev --respawn --transpileOnly ./index.ts"

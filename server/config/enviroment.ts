@@ -4,6 +4,7 @@ let enviroment = {
     port: config.express.port,
     ip: config.express.ip,
     mongo: {
+        connect: config.mongodb.connect,
         host: config.mongodb.host,
         port: config.mongodb.port,
         options: config.mongodb.options,

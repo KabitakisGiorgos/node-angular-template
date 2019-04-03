@@ -7,12 +7,14 @@ import Routes from './routes';
 import * as  path from 'path'
 
 mongoose.set('useCreateIndex', true);
-mongoose.connect(enviroment.mongo.uri, enviroment.mongo.options).then((data) => {
-    console.info('MongoDB is connected on ' + enviroment.mongo.uri);
-},
-    (err) => {
-        console.error(err);
-    });
+if (enviroment.mongo.connect) {//If mongo is selected from the config
+    mongoose.connect(enviroment.mongo.uri, enviroment.mongo.options).then((data) => {
+        console.info('MongoDB is connected on ' + enviroment.mongo.uri);
+    },
+        (err) => {
+            console.error(err);
+        });
+}
 
 
 let app = express();
